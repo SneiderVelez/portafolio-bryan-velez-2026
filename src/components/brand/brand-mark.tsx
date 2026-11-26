@@ -12,9 +12,9 @@ export function BrandMark({ className }: { className?: string }) {
         strokeLinecap="round"
         strokeWidth="1.7"
       />
-      <circle cx="5" cy="24" r="3" fill="#27C7D3" />
-      <circle cx="26" cy="8" r="4" fill="#B889B8" />
-      <path d="M22 8h-4" stroke="#B889B8" strokeLinecap="round" strokeWidth="1.7" />
+      <circle cx="5" cy="24" r="3" fill="var(--signal)" />
+      <circle cx="26" cy="8" r="4" fill="var(--brand-accent)" />
+      <path d="M22 8h-4" stroke="var(--brand-accent)" strokeLinecap="round" strokeWidth="1.7" />
     </svg>
   );
 }

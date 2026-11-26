@@ -2,23 +2,35 @@
 
 Esta es la primera versión implementada del sistema visual. Es una base de trabajo y se podrá ajustar al construir las pantallas y revisar el sitio en uso.
 
-## Paleta de partida
+## Paleta actual — azul cielo y grises fríos
 
-| Token | Color | Uso propuesto | Nota de contraste |
+La vista clara cambia a gris frío las áreas que antes eran beige y conserva en blanco las secciones que ya eran blancas. El modo oscuro usa grises carbón azulados y conserva el mismo cian como acento. El tema seleccionado se puede cambiar desde el icono de luna/sol y se guarda para la próxima visita; si no hay una preferencia guardada, se respeta el tema del sistema.
+
+### Modo claro
+
+| Token | Color | Uso | Contraste comprobado |
 |---|---|---|---|
-| `canvas` | `#F9F6F1` | Fondo marfil principal; tono dominante de la portada de LinkedIn. | Fondo claro. |
-| `surface` | `#FFFDFA` | Superficies pequeñas cuando haga falta separar un control. | Fondo claro. |
-| `ink` | `#24363B` | Texto principal y títulos. | Alto contraste sobre `canvas`. |
-| `muted-ink` | `#52666B` | Texto secundario y descripciones. | Contraste calculado de 5.61:1 sobre `canvas`. |
-| `brand-accent` | `#27C7D3` | Acento vivo para fondos de acción, textura y animación. | 1.91:1 sobre `canvas`; no usar como texto allí. Texto `#24363B` sobre cian: 6.12:1. |
-| `brand-interactive` | `color-mix(brand-accent 38%, ink)` (≈ `#256D75`) | Estado activo de navegación y acciones textuales en tema claro. | Contraste calculado de 5.38:1 sobre `canvas`; en tema oscuro usa `brand-accent`. |
-| `mauve` | `#B889B8` | Fondo de etiquetas de proyectos y detalles gráficos. | Con texto `#1D2B30`: 5.07:1; como texto sobre `canvas`: 2.67:1. |
-| `mauve-soft` | `#EFE5EF` | Superficies suaves y selección de texto. | Usar con texto `ink`. |
-| `ink-on-accent` | `#1D2B30` | Texto sobre cian y etiquetas malva. | Contraste calculado de 7.08:1 sobre `brand-accent` y 5.07:1 sobre `mauve`. |
-| `line` | `#D8D2CA` | Separadores principales. | Decorativo. |
-| `line-soft` | `#E7E2DC` | Detalles suaves del fondo. | Decorativo. |
+| `canvas` | `#E5EBF0` | Fondo gris frío de portada, sobre mí y pie de página; ahora se distingue un poco más de las secciones blancas. | `ink`: 10.70:1; `muted-ink`: 5.02:1. |
+| `surface` | `#FFFDFA` | Superficie blanca original para controles, paneles y tarjetas. | `ink`: 12.66:1; `muted-ink`: 5.94:1. |
+| `projects-background` | `#FFFFFF` | Conserva el fondo blanco original de proyectos y tecnologías. | `ink`: 12.86:1; `muted-ink`: 6.03:1. |
+| `ink` / `muted-ink` | `#24343D` / `#52666D` | Títulos y texto secundario. | Ambos alcanzan AA sobre los tres fondos claros. |
+| `brand-accent` | `#27C7D3` | Acento principal: botones rellenos, isotipo, animaciones y trazos de ilustración. | Texto `ink-on-accent` `#12313A`: 6.68:1. No usar el cian como texto sobre gris claro. |
+| `brand-interactive` | `#08727F` | Enlaces y navegación activa sobre fondos claros. | 4.69:1 sobre `canvas`; 5.64:1 sobre blanco. |
+| `signal` / `signal-ink` | `#0F8290` / `#0B5965` | Puntos, detalles secundarios y etiquetas de proyectos. | `signal-ink` sobre `surface`: 7.86:1. |
+| `line` / `line-soft` | `#778890` / mezcla de `canvas` e `ink` | Bordes de controles y separadores; la variante suave se reserva para detalles decorativos. | `line`: 3.06:1 sobre `canvas` y 3.68:1 sobre blanco. |
 
-La base conserva el marfil, la tinta y el gris secundario. El cian funciona como acento para fondos, textura y animación; `brand-interactive` deriva ese mismo cian hacia la tinta para distinguir los estados activos en tema claro con contraste AA. El malva queda en etiquetas de proyectos y detalles gráficos. El cian no se usa como texto sobre marfil. El azul gris `#7B92AA` no se usa para texto secundario porque no alcanza contraste AA.
+### Modo oscuro
+
+| Token | Color | Uso | Contraste comprobado |
+|---|---|---|---|
+| `canvas` / `surface` | `#131D25` / `#1D2A34` | Fondo carbón azulado y capas elevadas. | `ink`: 15.56:1 / 13.36:1. |
+| `projects-background` | `#182630` | Diferencia la sección de proyectos sin introducir un fondo negro. | `ink`: 14.09:1. |
+| `ink` / `muted-ink` | `#F1F5F7` / `#B8C7CE` | Texto principal y secundario. | `muted-ink`: 9.84:1 sobre `canvas`. |
+| `brand-accent` / `brand-interactive` | `#27C7D3` | Acciones, enlaces, navegación activa e ilustraciones. | `brand-accent` sobre `canvas`: 8.29:1; texto `#12313A` sobre el cian: 6.68:1. |
+| `signal` / `signal-ink` | `#6AD1DA` / `#BDEEF2` | Indicadores secundarios y etiquetas. | `signal-ink` sobre `surface`: 11.64:1. |
+| `line` | `#65767F` | Bordes, separadores y geometría. | 3.11:1 sobre `surface`. |
+
+El cian destaca como el color de marca; los fondos y textos usan grises con matiz azul para mantener la interfaz seria y técnica. En el modo claro el cian queda para superficies de acción y decoración, mientras que los enlaces usan una variante más oscura para conservar legibilidad.
 
 ## Tipografía
 
@@ -32,9 +44,9 @@ La base conserva el marfil, la tinta y el gris secundario. El cian funciona como
 
 - Usar guías de indentación abstractas solo en las esquinas: líneas anidadas que representan la construcción de componentes y sistemas de interfaz.
 - Evitar palabras, números y cuadrícula continua para que el fondo no parezca contenido ni imite literalmente una hoja de cuaderno.
-- Usar el cian y el malva con baja opacidad; desvanecer hacia el centro para mantener el texto despejado.
+- Usar el azul cielo y el azul señal con baja opacidad. Desvanecer hacia el centro para mantener el texto despejado.
 - La textura base se limita a las esquinas; el puntero revela un segundo nivel de guías de anidación de componentes. No contiene texto ni números legibles.
-- La navegación se mantiene fija dentro de una cápsula translúcida; los enlaces cambian color y peso al hover/foco, sin subrayado.
+- El header fijo usa un panel translúcido, más compacto y con esquinas de radio pequeño; los enlaces cambian color y peso al hover/foco, sin subrayado.
 - Presentar proyectos como lista editorial sin cajas; las previsualizaciones recuperan color en hover y foco, y aparecen a color en pantallas táctiles.
 
 ## Movimiento
@@ -53,7 +65,7 @@ La base conserva el marfil, la tinta y el gris secundario. El cian funciona como
 
 - Next.js con App Router, React, TypeScript y Tailwind CSS v4.
 - shadcn/ui como base de componentes copiables y modificables, con Base UI y variables CSS semánticas.
-- Los tokens de marca (`canvas`, `ink`, `brand-accent`, `mauve`, `line`) viven junto a los tokens semánticos de shadcn en `src/app/globals.css`.
+- Los tokens de marca (`canvas`, `ink`, `brand-accent`, `signal`, `line`) viven junto a los tokens semánticos de shadcn en `src/app/globals.css`.
 - Componentes compartidos iniciales: `Button`, `Badge`, `Separator`, `PageContainer`, `SectionHeading`, `ProjectRow`, `SiteHeader` y `SiteFooter`.
 - El isotipo geométrico propio representa el paso de un punto de curiosidad hacia una estructura; las redes usarán iconos reconocibles con texto visible, sin redibujar marcas de terceros.
 - El pie de página ya tiene un espacio común para correo y redes. Añadir perfiles cuando se definan las URL oficiales.

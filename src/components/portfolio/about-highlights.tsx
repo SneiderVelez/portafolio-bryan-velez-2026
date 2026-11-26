@@ -9,7 +9,7 @@ const highlights: {
     id: "formation",
     label: "Formación",
     description:
-      "Terminé las materias de Desarrollo de Software; me falta el proyecto de grado para graduarme.",
+      "Terminé el sexto semestre de la Tecnología en Desarrollo de Software y estoy pendiente de grado.",
   },
   {
     id: "experience",
@@ -21,13 +21,13 @@ const highlights: {
     id: "growth",
     label: "En crecimiento",
     description:
-      "Estoy ampliando mi perfil hacia full stack y reforzando Java y SQL.",
+      "Estoy ampliando mi perfil hacia full stack y fortaleciendo mis conocimientos en Java y SQL.",
   },
   {
     id: "interests",
     label: "Aficiones",
     description:
-      "Me gusta descubrir lugares a pie, sobre todo en la montaña, y retarme a llegar hasta la cima.",
+      "Disfruto salir a caminar y hacer una pausa para apreciar el paisaje, especialmente en la montaña.",
   },
 ];
 

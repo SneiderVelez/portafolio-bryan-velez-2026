@@ -161,13 +161,16 @@ export default function Home() {
                 Soy tecnólogo en Electricidad Industrial. Durante mis estudios de
                 Ingeniería en esta área tuve mi primer acercamiento al desarrollo en
                 una clase de C++. Me gustó y seguí explorando ese interés al estudiar
-                Desarrollo de Software, donde aprendí C#.
+                {" "}
+                <span className="about-copy__emphasis">Desarrollo de Software</span>,
+                donde fortalecí mis bases en programación.
               </p>
               <p className="body-copy mt-4 text-lg leading-[1.8] text-muted-foreground">
-                Hoy trabajo como desarrollador junior, principalmente en frontend.
-                Me gusta involucrarme desde la idea, aportar lo que sé y cuidar los
-                detalles para que el producto se vea bien, funcione bien y quede
-                bien resuelto.
+                Actualmente trabajo como desarrollador junior, principalmente en
+                frontend. Me gusta involucrarme desde la idea, aportar mis
+                conocimientos y cuidar cada detalle para lograr productos
+                {" "}
+                <span className="about-copy__emphasis">funcionales y bien resueltos</span>.
               </p>
               <AboutHighlights />
             </div>
