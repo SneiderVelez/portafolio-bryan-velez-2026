@@ -12,7 +12,7 @@
       <!-- Anidación de componentes: guías de indentación, sin texto legible. -->
       <path d="M92 82v146h82v94h104v78h66M1508 82v146h-82v94h-104v78h-66"/>
       <path d="M92 918V772h82v-94h104v-78h66M1508 918V772h-82v-94h-104v-78h-66"/>
-      <path d="M92 174h48M278 322h62M122 824h52M1428 174h-48M1322 322h-62M1428 824h-52" stroke="#B889B8"/>
+      <path d="M92 174h48M278 322h62M122 824h52M1428 174h-48M1322 322h-62M1428 824h-52" stroke="#0F8290"/>
     </g>
     <g fill="#27C7D3" fill-opacity=".38">
       <circle cx="92" cy="82" r="3"/><circle cx="344" cy="400" r="3"/>
@@ -20,7 +20,7 @@
       <circle cx="92" cy="918" r="3"/><circle cx="344" cy="600" r="3"/>
       <circle cx="1508" cy="918" r="3"/><circle cx="1256" cy="600" r="3"/>
     </g>
-    <g stroke="#B889B8" stroke-opacity=".56" stroke-width="2">
+    <g stroke="#0F8290" stroke-opacity=".56" stroke-width="2">
       <path d="M208 82h34M1392 82h-34M208 918h34M1392 918h-34"/>
     </g>
   </g>

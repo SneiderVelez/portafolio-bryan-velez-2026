@@ -13,13 +13,13 @@
       <path d="M374 66v58h-28v36h-27"/>
       <path d="M16 778v-58h28v-36h27"/>
       <path d="M374 778v-58h-28v-36h-27"/>
-      <path d="M44 124h18M346 124h-18M44 720h18M346 720h-18" stroke="#B889B8"/>
+      <path d="M44 124h18M346 124h-18M44 720h18M346 720h-18" stroke="#0F8290"/>
     </g>
     <g fill="#27C7D3" fill-opacity=".42">
       <circle cx="16" cy="66" r="2.5"/><circle cx="374" cy="66" r="2.5"/>
       <circle cx="16" cy="778" r="2.5"/><circle cx="374" cy="778" r="2.5"/>
     </g>
-    <g stroke="#B889B8" stroke-opacity=".54" stroke-width="1.7">
+    <g stroke="#0F8290" stroke-opacity=".54" stroke-width="1.7">
       <path d="M16 66h16M374 66h-16M16 778h16M374 778h-16"/>
     </g>
   </g>

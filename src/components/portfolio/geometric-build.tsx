@@ -174,7 +174,7 @@ export function BuildScene({ children }: { children: ReactNode }) {
           className="build-flow-extension"
           d="M-320 545C-205 532 -117 542 37 552"
           pathLength="1"
-          stroke="var(--mauve)"
+          stroke="var(--signal)"
           strokeLinecap="round"
           strokeWidth="2.4"
         />
@@ -197,7 +197,7 @@ export function BuildScene({ children }: { children: ReactNode }) {
               y2="246"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stopColor="var(--mauve)" />
+              <stop stopColor="var(--signal)" />
               <stop offset=".48" stopColor="var(--brand-accent)" />
               <stop offset="1" stopColor="var(--ink)" />
             </linearGradient>
@@ -210,7 +210,7 @@ export function BuildScene({ children }: { children: ReactNode }) {
             stroke="url(#build-flow)"
             strokeWidth="3"
           />
-          <circle className="build-flow-point build-flow-point--paper" cx="37" cy="552" r="8" fill="var(--mauve)" />
+          <circle className="build-flow-point build-flow-point--paper" cx="37" cy="552" r="8" fill="var(--signal)" />
           <circle className="build-flow-point build-flow-point--code" cx="706" cy="361" r="8" fill="var(--brand-accent)" />
           <circle className="build-flow-point build-flow-point--product" cx="1407" cy="206" r="13" fill="var(--ink)" />
 
@@ -225,22 +225,22 @@ export function BuildScene({ children }: { children: ReactNode }) {
             <path d="M305 418C348 414 395 418 444 422M305 432C347 429 396 433 442 436M305 446C344 444 391 447 441 450" strokeWidth="1.7" />
             <path d="M129 493C222 487 337 497 446 489" strokeOpacity=".78" strokeWidth="1.8" />
             <path d="M63 579C138 567 204 581 279 569C344 558 407 579 478 562" strokeOpacity=".62" strokeWidth="1.7" />
-            <path d="M57 573L75 559L82 578" stroke="var(--mauve)" strokeWidth="2.4" />
+            <path d="M57 573L75 559L82 578" stroke="var(--signal)" strokeWidth="2.4" />
             <circle cx="129" cy="216" r="4.5" fill="var(--brand-accent)" stroke="none" />
-            <circle cx="444" cy="290" r="4.5" fill="var(--mauve)" stroke="none" />
+            <circle cx="444" cy="290" r="4.5" fill="var(--signal)" stroke="none" />
             <circle cx="129" cy="493" r="4.5" fill="var(--brand-accent)" stroke="none" />
           </g>
 
           <g className="build-layer build-code" strokeLinecap="round" strokeLinejoin="round">
             <path d="M553 239L523 263L553 288M778 239L808 263L778 288" stroke="var(--ink)" strokeWidth="5" />
-            <path d="M650 229L616 296" stroke="var(--mauve)" strokeWidth="5" />
+            <path d="M650 229L616 296" stroke="var(--signal)" strokeWidth="5" />
             <text className="build-code-label" x="577" y="348">01  page.tsx</text>
             <text className="build-code-label build-code-label--bright" x="577" y="390">&lt;Header /&gt;</text>
             <text className="build-code-label" x="577" y="431">&lt;Content /&gt;</text>
             <path d="M577 461H735M577 479H696M577 497H716" stroke="var(--muted-ink)" strokeOpacity=".56" strokeWidth="2.4" />
             <path d="M848 317C877 332 890 354 890 384M848 452C877 436 890 414 890 384" stroke="var(--line)" strokeWidth="2" />
             <path d="M861 384H912" stroke="var(--brand-accent)" strokeWidth="3" />
-            <path d="M912 384L925 371L938 384L925 397L912 384Z" fill="var(--mauve)" stroke="none" />
+            <path d="M912 384L925 371L938 384L925 397L912 384Z" fill="var(--signal)" stroke="none" />
           </g>
 
           <g className="build-layer build-data" strokeLinecap="round" strokeLinejoin="round">
@@ -255,7 +255,7 @@ export function BuildScene({ children }: { children: ReactNode }) {
           <g className="build-layer build-components" strokeLinecap="round" strokeLinejoin="round">
             <g transform="translate(-80 0)">
             <path className="build-module build-module--nav" d="M985 161H1488V224H985Z" stroke="var(--line)" strokeWidth="2" />
-            <path d="M1018 185L1032 171L1046 185L1032 199L1018 185Z" fill="var(--mauve)" stroke="none" />
+            <path d="M1018 185L1032 171L1046 185L1032 199L1018 185Z" fill="var(--signal)" stroke="none" />
             <path d="M1061 182H1113M1412 184H1452M1464 184H1481" stroke="var(--muted-ink)" strokeOpacity=".72" strokeWidth="3" />
 
             <path className="build-module build-module--copy" d="M985 251H1275V470H985Z" stroke="none" fill="var(--canvas)" />
@@ -267,12 +267,12 @@ export function BuildScene({ children }: { children: ReactNode }) {
             <path className="build-module build-module--image" d="M1294 251H1488V470H1294Z" stroke="none" fill="var(--brand-accent)" fillOpacity=".28" />
             <path d="M1308 425C1349 372 1377 396 1408 345C1435 302 1464 316 1490 280V470H1308Z" fill="var(--brand-accent)" fillOpacity=".68" stroke="none" />
             <path d="M1308 390C1350 365 1383 375 1411 336C1441 295 1461 294 1490 266" stroke="var(--ink)" strokeWidth="2.4" />
-            <circle cx="1405" cy="338" r="12" fill="var(--mauve)" stroke="var(--canvas)" strokeWidth="4" />
+            <circle cx="1405" cy="338" r="12" fill="var(--signal)" stroke="var(--canvas)" strokeWidth="4" />
 
             <path className="build-module build-module--card-a" d="M985 494H1227V616H985Z" stroke="var(--line)" strokeWidth="2" />
             <path className="build-module build-module--card-b" d="M1243 494H1488V616H1243Z" stroke="var(--line)" strokeWidth="2" />
             <path d="M1010 525H1098M1010 543H1172M1010 561H1152" stroke="var(--muted-ink)" strokeOpacity=".66" strokeWidth="3" />
-            <path d="M1010 590H1064" stroke="var(--mauve)" strokeWidth="7" />
+            <path d="M1010 590H1064" stroke="var(--signal)" strokeWidth="7" />
             <path d="M1270 523L1285 508L1300 523L1285 538L1270 523Z" fill="var(--brand-accent)" stroke="none" />
             <path d="M1314 520H1457M1270 557H1457M1270 574H1417M1270 591H1378" stroke="var(--muted-ink)" strokeOpacity=".65" strokeWidth="3" />
             </g>
@@ -280,10 +280,10 @@ export function BuildScene({ children }: { children: ReactNode }) {
 
           <g className="build-layer build-finish" strokeLinecap="round" strokeLinejoin="round">
             <path d="M930 145C1089 119 1359 116 1515 148" stroke="var(--ink)" strokeOpacity=".46" strokeWidth="2" />
-            <path d="M948 642C1110 672 1360 668 1522 640" stroke="var(--mauve)" strokeOpacity=".62" strokeWidth="2" />
+            <path d="M948 642C1110 672 1360 668 1522 640" stroke="var(--signal)" strokeOpacity=".62" strokeWidth="2" />
             <path d="M1488 224V251M985 470V494M1488 470V494" stroke="var(--brand-accent)" strokeWidth="2" />
             <circle cx="1488" cy="224" r="5" fill="var(--brand-accent)" stroke="none" />
-            <circle cx="985" cy="494" r="5" fill="var(--mauve)" stroke="none" />
+            <circle cx="985" cy="494" r="5" fill="var(--signal)" stroke="none" />
           </g>
         </svg>
       </figure>

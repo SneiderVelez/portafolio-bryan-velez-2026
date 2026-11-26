@@ -17,7 +17,7 @@ export function AboutPortraitArt() {
           y2="640"
         >
           <stop offset="0%" stopColor="var(--brand-accent)" stopOpacity="0.14" />
-          <stop offset="100%" stopColor="var(--mauve)" stopOpacity="0.09" />
+          <stop offset="100%" stopColor="var(--signal)" stopOpacity="0.09" />
         </linearGradient>
         <linearGradient
           gradientUnits="userSpaceOnUse"
@@ -28,7 +28,7 @@ export function AboutPortraitArt() {
           y2="548"
         >
           <stop offset="0%" stopColor="var(--brand-accent)" stopOpacity="0.24" />
-          <stop offset="100%" stopColor="var(--mauve)" stopOpacity="0.2" />
+          <stop offset="100%" stopColor="var(--signal)" stopOpacity="0.2" />
         </linearGradient>
       </defs>
 
@@ -115,7 +115,7 @@ export function AboutPortraitArt() {
           pathLength={1}
         />
         <path
-          className="about-portrait__path about-portrait__path--mauve"
+          className="about-portrait__path about-portrait__path--signal"
           d="M494 343c17-13 35-17 54-13m-176 59c17-4 30-2 45 6"
           pathLength={1}
         />
@@ -130,7 +130,7 @@ export function AboutPortraitArt() {
         />
         <circle className="about-portrait__spark" cx="122" cy="487" r="6" />
         <circle
-          className="about-portrait__spark about-portrait__spark--mauve"
+          className="about-portrait__spark about-portrait__spark--signal"
           cx="327"
           cy="407"
           r="6"

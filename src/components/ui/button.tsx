@@ -3,13 +3,13 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "cn"
 
 const buttonVariants = cva(
-  "group/button inline-flex shrink-0 items-center justify-center rounded-[var(--radius-control)] border bg-clip-padding text-sm font-medium whitespace-nowrap transition-colors outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "group/button inline-flex shrink-0 items-center justify-center rounded-[var(--radius-control)] border bg-clip-padding text-sm font-medium whitespace-nowrap transition-[color,background-color,box-shadow,transform] outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {
         default: "border-transparent bg-primary text-primary-foreground hover:bg-brand-accent-hover",
         outline:
-          "border-brand-interactive bg-transparent text-brand-interactive hover:border-brand-accent hover:bg-brand-accent hover:text-ink-on-accent aria-expanded:border-brand-accent aria-expanded:bg-brand-accent aria-expanded:text-ink-on-accent",
+          "border-transparent bg-transparent text-brand-interactive hover:bg-transparent hover:text-ink hover:shadow-[0_5px_16px_color-mix(in_srgb,var(--brand-accent)_28%,transparent)] focus-visible:border-transparent focus-visible:bg-transparent focus-visible:text-ink focus-visible:ring-0 focus-visible:shadow-[0_0_0_3px_color-mix(in_srgb,var(--brand-accent)_34%,transparent)] aria-expanded:border-transparent aria-expanded:bg-transparent aria-expanded:text-ink aria-expanded:shadow-[0_0_0_3px_color-mix(in_srgb,var(--brand-accent)_30%,transparent)] aria-pressed:border-transparent aria-pressed:bg-transparent aria-pressed:text-ink aria-pressed:shadow-[0_0_0_3px_color-mix(in_srgb,var(--brand-accent)_30%,transparent)]",
         secondary:
           "border-transparent bg-secondary text-secondary-foreground hover:bg-[color-mix(in_oklch,var(--secondary),var(--foreground)_5%)] aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
         ghost:

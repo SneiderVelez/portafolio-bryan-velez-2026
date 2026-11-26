@@ -38,7 +38,7 @@ export function TechnologySection() {
       className="technology-section"
       id="tecnologias"
     >
-      <div className="page-shell border-t border-line pb-12 pt-8 sm:pb-16 sm:pt-10">
+      <div className="page-shell pb-12 pt-12 sm:pb-16 sm:pt-14">
         <SectionHeading
           className="mb-7 sm:mb-9"
           description="Tecnologías y prácticas que aplico en proyectos de producto y desarrollo web."

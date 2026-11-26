@@ -6,7 +6,7 @@
       <path d="M800 300v72h-46v52M800 700v-72h46v-52"/>
       <path d="M430 500h72v-54h60M1170 500h-72v54h-60"/>
     </g>
-    <g stroke="#B889B8" stroke-opacity=".52" stroke-width="1.8">
+    <g stroke="#0F8290" stroke-opacity=".52" stroke-width="1.8">
       <path d="M652 404h28v28h28M948 596h-28v-28h-28"/>
       <path d="M754 424v28h-28M846 576v-28h28"/>
     </g>
@@ -15,7 +15,7 @@
       <circle cx="630" cy="580" r="3"/><circle cx="970" cy="420" r="3"/>
       <circle cx="800" cy="300" r="3"/><circle cx="800" cy="700" r="3"/>
     </g>
-    <g fill="#B889B8" fill-opacity=".68">
+    <g fill="#0F8290" fill-opacity=".68">
       <circle cx="708" cy="432" r="3"/><circle cx="892" cy="568" r="3"/>
       <circle cx="726" cy="452" r="2.5"/><circle cx="874" cy="548" r="2.5"/>
     </g>
