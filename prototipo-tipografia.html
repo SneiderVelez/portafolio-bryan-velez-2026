@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Comparación tipográfica — Bryan Vélez</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root { --paper:#f9f6f1; --ink:#24363b; --muted:#52666b; --petrol:#205e70; --violet:#6e58a6; --line:#d8d2ca; --mono:"IBM Plex Mono",monospace; }
+      * { box-sizing:border-box; }
+      body { margin:0; position:relative; isolation:isolate; background:var(--paper); color:var(--ink); font:16px/1.65 "IBM Plex Sans",sans-serif; }
+      body::before { content:""; position:fixed; z-index:-1; inset:0; pointer-events:none; background:url("assets/textures/rutas-de-curiosidad.svg") center/cover no-repeat; opacity:.7; }
+      main { width:min(1160px,calc(100% - 2.5rem)); margin:0 auto; padding:3.5rem 0 5rem; }
+      .top { display:flex; justify-content:space-between; gap:2rem; align-items:start; margin-bottom:2.5rem; }
+      .tag { color:var(--petrol); font:500 .75rem var(--mono); letter-spacing:.06em; text-transform:uppercase; }
+      h1 { max-width:760px; margin:.8rem 0; font:600 clamp(2.6rem,6vw,5rem)/1.02 "IBM Plex Sans",sans-serif; letter-spacing:-.045em; }
+      .intro { max-width:690px; margin:0; color:var(--muted); }
+      .back { color:var(--petrol); font-weight:600; white-space:nowrap; }
+      .options { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+      article { overflow:hidden; border:1px solid var(--line); border-radius:1.25rem; background:rgba(255,253,250,.94); }
+      .sample { min-height:325px; padding:clamp(1.4rem,4vw,2.6rem); display:flex; flex-direction:column; }
+      .option-label { display:flex; justify-content:space-between; gap:1rem; padding-bottom:1rem; border-bottom:1px solid var(--line); color:var(--muted); font:.7rem var(--mono); }
+      .plex h2 { margin:2rem 0 .8rem; font:500 clamp(2.4rem,4.5vw,4rem)/1.08 "IBM Plex Sans",sans-serif; letter-spacing:-.015em; }
+      .manrope h2 { margin:2rem 0 .8rem; font:500 clamp(2.4rem,4.5vw,4rem)/1.08 "Manrope",sans-serif; letter-spacing:-.005em; }
+      .sample p { max-width:35ch; margin:0; color:var(--muted); }
+      .sample .meta { margin-top:auto; padding-top:1.5rem; color:var(--violet); font:.72rem var(--mono); letter-spacing:.04em; }
+      .notes { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1rem; }
+      .note { padding:1.25rem 1.4rem; border:1px solid var(--line); border-radius:1rem; background:rgba(255,253,250,.94); }
+      .note h3 { margin:0 0 .4rem; font-size:1rem; }
+      .note p { margin:0; color:var(--muted); font-size:.93rem; }
+      .texture { min-height:110px; margin-top:1rem; border:1px solid var(--line); border-radius:1rem; background:rgba(255,253,250,.78) url("assets/textures/rutas-de-curiosidad.svg") center/cover no-repeat; }
+      .texture-caption { margin:.45rem 0 0; color:var(--muted); font:.7rem var(--mono); }
+      @media(max-width:720px) { .top { display:block; } .back { display:inline-block; margin-top:1rem; } .options,.notes { grid-template-columns:1fr; } .sample { min-height:280px; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="top">
+        <div>
+          <div class="tag">Prueba visual · dirección tipográfica</div>
+          <h1>La misma idea, dos voces tipográficas.</h1>
+          <p class="intro">Comparación inicial para escoger la sensación de lectura. Ambas opciones usan una sans clásica y espaciosa, con etiquetas monoespaciadas; ninguna es decisión final.</p>
+        </div>
+        <a class="back" href="prototipo-home.html">Volver a la maqueta ↗</a>
+      </div>
+      <section class="options" aria-label="Comparación de opciones tipográficas">
+        <article class="sample plex">
+          <div class="option-label"><span>Opción A</span><span>IBM Plex Sans</span></div>
+          <h2>De la curiosidad<br/>al sistema.</h2>
+          <p>Construyo experiencias web cuidadas, desde sitios visuales hasta interfaces de producto.</p>
+          <div class="meta">FRONTEND · PRODUCTO · QA</div>
+        </article>
+        <article class="sample manrope">
+          <div class="option-label"><span>Opción B</span><span>Manrope</span></div>
+          <h2>De la curiosidad<br/>al sistema.</h2>
+          <p>Construyo experiencias web cuidadas, desde sitios visuales hasta interfaces de producto.</p>
+          <div class="meta">FRONTEND · PRODUCTO · QA</div>
+        </article>
+      </section>
+      <section class="notes" aria-label="Notas sobre la dirección visual">
+        <div class="note"><h3>Textura propia</h3><p>Rutas curvas y nodos recorren todo el fondo, inspirados en tu portada y en la idea de conectar curiosidad con estructura.</p></div>
+        <div class="note"><h3>Lectura primero</h3><p>El patrón queda tenue; las tarjetas usan superficies casi sólidas para mantener contraste y lectura cómoda.</p></div>
+      </section>
+      <div class="texture" role="img" aria-label="Muestra ampliada de la textura de líneas curvas y nodos"></div>
+      <p class="texture-caption">Muestra de textura · rutas y nodos, no una cuadrícula</p>
+    </main>
+  </body>
+</html>

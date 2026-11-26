@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 844" fill="none">
+  <defs>
+    <radialGradient id="edge-fade" cx="50%" cy="46%" r="72%">
+      <stop offset="0" stop-color="white" stop-opacity="0"/>
+      <stop offset="56%" stop-color="white" stop-opacity="0"/>
+      <stop offset="100%" stop-color="white" stop-opacity=".82"/>
+    </radialGradient>
+    <mask id="fade"><rect width="390" height="844" fill="url(#edge-fade)"/></mask>
+  </defs>
+  <g mask="url(#fade)" stroke-linecap="round" stroke-linejoin="round">
+    <g stroke="#27C7D3" stroke-opacity=".42" stroke-width="1.3">
+      <path d="M16 66v58h28v36h27"/>
+      <path d="M374 66v58h-28v36h-27"/>
+      <path d="M16 778v-58h28v-36h27"/>
+      <path d="M374 778v-58h-28v-36h-27"/>
+      <path d="M44 124h18M346 124h-18M44 720h18M346 720h-18" stroke="#B889B8"/>
+    </g>
+    <g fill="#27C7D3" fill-opacity=".42">
+      <circle cx="16" cy="66" r="2.5"/><circle cx="374" cy="66" r="2.5"/>
+      <circle cx="16" cy="778" r="2.5"/><circle cx="374" cy="778" r="2.5"/>
+    </g>
+    <g stroke="#B889B8" stroke-opacity=".54" stroke-width="1.7">
+      <path d="M16 66h16M374 66h-16M16 778h16M374 778h-16"/>
+    </g>
+  </g>
+</svg>

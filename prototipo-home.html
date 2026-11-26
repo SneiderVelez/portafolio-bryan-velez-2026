@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f9f6f1" />
+    <title>Bryan Vélez — Portafolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@400;500;600&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        color-scheme: light;
+        --canvas: #f9f6f1;
+        --surface: #fffdfa;
+        --ink: #24363b;
+        --muted: #52666b;
+        --petrol: #205e70;
+        --violet: #6e58a6;
+        --lilac: #a090c8;
+        --line: #d8d2ca;
+        --radius: 1.5rem;
+        --sans: "IBM Plex Sans", "Helvetica Neue", "Segoe UI", sans-serif;
+        --serif: "IBM Plex Sans", "Helvetica Neue", "Segoe UI", sans-serif;
+        --mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        position: relative;
+        isolation: isolate;
+        background: var(--canvas);
+        color: var(--ink);
+        font: 1rem/1.65 var(--sans);
+      }
+      body::before { content:""; position:fixed; z-index:0; inset:0; pointer-events:none; background:url("assets/textures/hoja-de-codigo.svg") center/cover no-repeat; opacity:1; mask-image:radial-gradient(ellipse 78% 72% at 50% 50%, transparent 0%, rgba(0,0,0,.18) 37%, rgba(0,0,0,.72) 76%, #000 100%); }
+      header, main, footer { position:relative; z-index:1; }
+      a { color: inherit; }
+      a:focus-visible { outline: 3px solid var(--violet); outline-offset: 4px; }
+      .skip-link {
+        position: absolute; left: 1rem; top: -5rem; z-index: 10;
+        padding: .7rem 1rem; border-radius: .5rem;
+        background: var(--ink); color: white;
+      }
+      .skip-link:focus { top: 1rem; }
+      .shell { width: min(1160px, calc(100% - 3rem)); margin-inline: auto; }
+      header { padding-block: 1.25rem; }
+      .nav { display:flex; align-items:center; justify-content:space-between; gap:2rem; }
+      .brand { text-decoration:none; font-weight:700; letter-spacing:-.04em; font-size:1.1rem; }
+      .brand-mark { color:var(--violet); margin-right:.4rem; }
+      .nav-links { display:flex; gap:clamp(1rem, 3vw, 2.4rem); align-items:center; }
+      .nav-links a { text-decoration:none; color:var(--muted); font-size:.93rem; }
+      .nav-links a:hover { color:var(--petrol); }
+      .nav-contact { color:var(--petrol)!important; font-weight:650; }
+
+      .hero { min-height:min(680px,82vh); display:flex; align-items:center; padding-block:5rem 6rem; }
+      .hero-content { width:min(820px,100%); margin-inline:auto; }
+      .eyebrow { color:var(--petrol); font:600 .78rem/1.4 var(--mono); letter-spacing:.04em; text-transform:uppercase; }
+      h1 { max-width:620px; margin:.9rem 0 1.3rem; font:500 clamp(2.65rem, 5vw, 4.25rem)/1.12 "IBM Plex Sans Condensed", var(--sans); letter-spacing:.005em; }
+      h1 span { display:block; color:var(--petrol); font-style:normal; letter-spacing:.015em; }
+      .hero-copy { max-width:560px; color:var(--muted); font-size:1.08rem; line-height:1.65; }
+      .actions { display:flex; flex-wrap:wrap; gap:.8rem; margin-top:2rem; }
+      .button { display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:.7rem 1.15rem; border:1px solid var(--petrol); border-radius:999px; font-weight:650; text-decoration:none; transition:transform .18s ease, background-color .18s ease; }
+      .button-primary { color:white; background:var(--petrol); }
+      .button-secondary { color:var(--petrol); background:transparent; }
+      .button:hover { transform:translateY(-2px); }
+      .button-secondary:hover { background:#eaf0ef; }
+
+
+      .section-heading { display:flex; align-items:end; justify-content:space-between; gap:2rem; margin-bottom:1.5rem; }
+      h2 { margin:0; font:500 clamp(2.3rem,4vw,3.5rem)/1.08 var(--sans); letter-spacing:-.02em; }
+      .section-heading p { max-width:390px; margin:0; color:var(--muted); }
+      .projects { padding-block:3.5rem 6rem; }
+      .project-list { border-top:1px solid var(--line); }
+      .project-row { display:grid; grid-template-columns:42px minmax(0,1fr) minmax(190px,280px); align-items:center; gap:1.5rem; padding:1.4rem 0; border-bottom:1px solid var(--line); text-decoration:none; }
+      .project-row:focus-visible { outline:3px solid var(--violet); outline-offset:4px; }
+      .project-number { align-self:start; padding-top:.25rem; color:var(--muted); font: .75rem var(--mono); }
+      .project-meta { color:var(--violet); font: .72rem var(--mono); letter-spacing:.025em; }
+      .project-row h3 { margin:.35rem 0 .25rem; font:600 1.35rem/1.25 var(--sans); letter-spacing:-.02em; transition:color .2s ease; }
+      .project-row p { margin:0; max-width:58ch; color:var(--muted); font-size:1rem; }
+      .project-preview { position:relative; height:128px; overflow:hidden; filter:grayscale(1); opacity:.68; transition:filter .28s ease,opacity .28s ease; }
+      .project-preview::before, .project-preview::after { content:""; position:absolute; }
+      .project-preview--beyond { display:grid; place-items:center; background:linear-gradient(130deg,#e8e1f2,#dce8e4); color:var(--ink); font:500 1.6rem var(--sans); letter-spacing:.08em; }
+      .project-preview--beyond::after { width:54px; height:54px; right:13%; top:16%; border:1px solid var(--petrol); border-radius:50%; }
+      .project-preview--kuadra { padding:14px; background:#e9ecea; }
+      .project-preview--kuadra::before { inset:14px; border:1px solid #b8c1bd; background:linear-gradient(90deg,#dfe4e1 0 22%,transparent 22%),repeating-linear-gradient(to bottom,#fff 0 15px,#edf0ee 15px 16px); }
+      .project-preview--kuadra::after { width:28%; height:14px; top:28px; left:32%; background:#c7b9e3; }
+      .project-preview--landing { display:grid; place-items:center; background:linear-gradient(120deg,#205e70,#6e58a6); color:white; font:500 1.35rem var(--sans); letter-spacing:.08em; }
+      .project-row:hover .project-preview, .project-row:focus-visible .project-preview { filter:none; opacity:1; }
+      .project-row:hover h3, .project-row:focus-visible h3 { color:var(--petrol); }
+      .project-row:hover .project-number, .project-row:focus-visible .project-number { color:var(--violet); }
+      .project-arrow { color:var(--petrol); font-size:1.2rem; padding-left:.35rem; }
+
+      .about { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr); align-items:center; gap:clamp(2rem,7vw,6rem); padding-block:5rem 7rem; border-top:1px solid var(--line); }
+      .about-copy { max-width:660px; }
+      .about-kicker { display:block; margin-bottom:1rem; color:var(--petrol); font:500 .75rem var(--mono); letter-spacing:.06em; text-transform:uppercase; }
+      .about h2 { margin-bottom:1.4rem; }
+      .portrait-slot { aspect-ratio:4/5; max-height:490px; position:relative; overflow:hidden; display:grid; place-items:center; border:1px solid rgba(32,94,112,.22); background:linear-gradient(145deg,rgba(32,94,112,.08),rgba(160,144,200,.14)); }
+      .portrait-slot::before { content:""; position:absolute; inset:10px; border:1px solid rgba(32,94,112,.25); }
+      .portrait-label { position:relative; z-index:1; padding:.55rem .8rem; background:var(--canvas); color:var(--muted); font:.7rem var(--mono); }
+      .about p { max-width:680px; margin:0; color:var(--muted); font-size:1.1rem; }
+      .about strong { color:var(--ink); }
+      footer { padding:1.5rem 0 2.5rem; border-top:1px solid var(--line); color:var(--muted); }
+      .footer-inner { display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+
+      @media (max-width:760px) {
+        .shell { width:min(100% - 2rem, 600px); }
+        body::before { background-size:auto 100vh; background-position:left center; }
+        .nav { align-items:flex-start; }
+        .nav-links { gap:.8rem; flex-wrap:wrap; justify-content:flex-end; }
+        .nav-links a { font-size:.82rem; }
+        .hero { min-height:auto; padding-block:5rem 4rem; }
+        .section-heading { display:block; }
+        .section-heading p { margin-top:.8rem; }
+        .project-row { grid-template-columns:32px 1fr; gap:.75rem 1rem; padding:1.2rem 0; }
+        .project-preview { grid-column:2; height:150px; margin-top:.25rem; filter:none; opacity:1; }
+        .about { grid-template-columns:1fr 1fr; gap:1.25rem; }
+        .portrait-slot { grid-column:2; grid-row:1 / span 2; align-self:stretch; aspect-ratio:auto; min-height:260px; }
+      }
+      @media (max-width:440px) {
+        .nav { display:block; }
+        .nav-links { justify-content:flex-start; margin-top:.85rem; }
+        h1 { font-size:2.65rem; }
+        .project-row h3 { font-size:1.2rem; }
+        .about { grid-template-columns:1fr; }
+        .portrait-slot { grid-column:auto; grid-row:auto; min-height:340px; aspect-ratio:4/5; max-height:420px; }
+      }
+      @media (hover:none) { .project-preview { filter:none; opacity:1; } }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior:auto; }
+        *, *::before, *::after { transition-duration:.01ms!important; animation-duration:.01ms!important; animation-iteration-count:1!important; }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <header class="shell">
+      <nav class="nav" aria-label="Navegación principal">
+        <a class="brand" href="#inicio"><span class="brand-mark" aria-hidden="true">◈</span>Bryan Vélez</a>
+        <div class="nav-links">
+          <a href="#proyectos">Proyectos</a>
+          <a href="#sobre-mi">Sobre mí</a>
+          <a class="nav-contact" href="mailto:sneivega09@gmail.com">Contacto ↗</a>
+        </div>
+      </nav>
+    </header>
+    <main id="contenido">
+      <section class="hero shell" id="inicio" aria-labelledby="hero-title">
+        <div class="hero-content">
+          <div class="eyebrow">Desarrollo frontend · sitios web y productos digitales</div>
+          <h1 id="hero-title">De la curiosidad <span>al sistema.</span></h1>
+          <p class="hero-copy">Desarrollo experiencias web: desde sitios visuales completos hasta interfaces para productos SaaS. Mi base es frontend y estoy ampliando mi camino hacia full stack.</p>
+          <div class="actions">
+            <a class="button button-primary" href="#proyectos">Ver proyectos</a>
+            <a class="button button-secondary" href="mailto:sneivega09@gmail.com">Contactarme</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="projects shell" id="proyectos" aria-labelledby="projects-title">
+        <div class="section-heading">
+          <h2 id="projects-title">Proyectos</h2>
+          <p>Una selección de trabajo visual y de producto.</p>
+        </div>
+        <div class="project-list">
+          <a class="project-row" href="#beyond-case">
+            <span class="project-number">01</span>
+            <span>
+              <span class="project-meta">Sitio web · CMS · Frontend</span>
+              <h3 id="beyond-case">Beyond Learning Academy <span class="project-arrow" aria-hidden="true">↗</span></h3>
+              <p>Sitio y portal digital responsivos con CMS personalizado en Payload.</p>
+            </span>
+            <span class="project-preview project-preview--beyond" aria-hidden="true">BEYOND</span>
+          </a>
+          <a class="project-row" href="#kuadra-case">
+            <span class="project-number">02</span>
+            <span>
+              <span class="project-meta">Producto SaaS · Sistema de diseño · QA</span>
+              <h3 id="kuadra-case">Kuadra <span class="project-arrow" aria-hidden="true">↗</span></h3>
+              <p>Implementación frontend de una plataforma en evolución, desde Figma a módulos reales.</p>
+            </span>
+            <span class="project-preview project-preview--kuadra" aria-hidden="true"></span>
+          </a>
+          <a class="project-row" href="#landing-case">
+            <span class="project-number">03</span>
+            <span>
+              <span class="project-meta">Landing · Comunicación visual</span>
+              <h3 id="landing-case">Kuadra · Landing pública <span class="project-arrow" aria-hidden="true">↗</span></h3>
+              <p>Una presentación directa de la propuesta y las funcionalidades del producto.</p>
+            </span>
+            <span class="project-preview project-preview--landing" aria-hidden="true">KUADRA</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="about shell" id="sobre-mi" aria-labelledby="about-title">
+        <div class="about-copy">
+          <span class="about-kicker">Frontend · producto · calidad</span>
+          <h2 id="about-title">Sobre mí</h2>
+          <p>Me gusta convertir diseños y necesidades de producto en interfaces web claras y funcionales. Mi experiencia está enfocada en frontend y QA; actualmente amplío mi perfil hacia full stack y estudio <strong>Java</strong>.</p>
+          <p style="margin-top:1rem">En el diseño final podemos sumar una nota más personal —lo que te da curiosidad, cómo aprendes o qué disfrutas construir— para acercar el About al tono cálido y narrativo que te gusta de Josh.</p>
+        </div>
+        <div class="portrait-slot" role="img" aria-label="Espacio reservado para definir una fotografía personal o una imagen editada">
+          <span class="portrait-label">retrato por definir</span>
+        </div>
+      </section>
+    </main>
+    <footer><div class="footer-inner shell"><span>Bryan Vélez · Portafolio</span><a href="mailto:sneivega09@gmail.com">Hablemos ↗</a></div></footer>
+  </body>
+</html>

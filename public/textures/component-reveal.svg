@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" fill="none">
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <g stroke="#27C7D3" stroke-opacity=".48" stroke-width="1.5">
+      <path d="M580 350h72v54h54v54h62M1020 650h-72v-54h-54v-54h-62"/>
+      <path d="M630 580h50v-44h54v-42h54M970 420h-50v44h-54v42h-54"/>
+      <path d="M800 300v72h-46v52M800 700v-72h46v-52"/>
+      <path d="M430 500h72v-54h60M1170 500h-72v54h-60"/>
+    </g>
+    <g stroke="#B889B8" stroke-opacity=".52" stroke-width="1.8">
+      <path d="M652 404h28v28h28M948 596h-28v-28h-28"/>
+      <path d="M754 424v28h-28M846 576v-28h28"/>
+    </g>
+    <g fill="#27C7D3" fill-opacity=".5">
+      <circle cx="580" cy="350" r="4"/><circle cx="1020" cy="650" r="4"/>
+      <circle cx="630" cy="580" r="3"/><circle cx="970" cy="420" r="3"/>
+      <circle cx="800" cy="300" r="3"/><circle cx="800" cy="700" r="3"/>
+    </g>
+    <g fill="#B889B8" fill-opacity=".68">
+      <circle cx="708" cy="432" r="3"/><circle cx="892" cy="568" r="3"/>
+      <circle cx="726" cy="452" r="2.5"/><circle cx="874" cy="548" r="2.5"/>
+    </g>
+  </g>
+</svg>
