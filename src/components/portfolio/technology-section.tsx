@@ -2,21 +2,20 @@ import { SectionHeading } from "@/components/portfolio/section-heading";
 
 const technologyGroups = [
   {
-    title: "Lenguajes",
-    items: ["JavaScript", "C#"],
-  },
-  {
     title: "Frontend",
     items: ["React.js", "Next.js", "Vite", "Tailwind CSS", "shadcn/ui"],
   },
   {
+    title: "Lenguajes",
+    items: ["JavaScript", "TypeScript", "C#", "SQL"],
+  },
+  {
     title: "Diseño y CMS",
     items: [
-      "Figma Dev Mode",
+      "Figma",
       "Sistemas de diseño",
       "Componentes modulares",
       "Payload CMS",
-      "CRUDs",
     ],
   },
   {
@@ -24,11 +23,10 @@ const technologyGroups = [
     items: [
       "API REST",
       "Fetch / Axios",
-      "QA funcional",
-      "QA exploratorio",
+      "CRUDs",
+      "QA manual · visual y funcional",
       "UI/UX",
       "Git / GitHub",
-      "OpenCode · IA",
     ],
   },
 ] as const;
@@ -71,7 +69,13 @@ export function TechnologySection() {
 
         <div className="mt-7 flex flex-wrap gap-x-10 gap-y-2 border-t border-line pt-4 text-sm text-muted-foreground">
           <p>
-            <span className="font-semibold text-ink">En aprendizaje:</span> Java · SQL
+            <span className="font-semibold text-ink">En aprendizaje:</span> Java
+          </p>
+          <p>
+            <span className="font-semibold text-ink">
+              Asistentes de desarrollo:
+            </span>{" "}
+            Codex · OpenCode · Orca · Claude
           </p>
           <p>
             <span className="font-semibold text-ink">Idiomas:</span> español nativo · inglés A2

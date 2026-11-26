@@ -21,7 +21,7 @@ const highlights: {
     id: "growth",
     label: "En crecimiento",
     description:
-      "Estoy ampliando mi perfil hacia full stack y reforzando Java y SQL.",
+      "Estoy reforzando mis bases de backend para complementar mi experiencia en frontend.",
   },
   {
     id: "interests",

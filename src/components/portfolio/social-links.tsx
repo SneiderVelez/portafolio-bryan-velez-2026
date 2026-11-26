@@ -1,11 +1,14 @@
-import type { LucideIcon } from "lucide-react";
+import type { ComponentType } from "react";
 
 import { cn } from "@/lib/utils";
 
 export type SocialLinkItem = {
   label: string;
   href: string;
-  Icon: LucideIcon;
+  Icon: ComponentType<{
+    className?: string;
+    "aria-hidden"?: boolean;
+  }>;
 };
 
 export function SocialLinks({

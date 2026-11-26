@@ -23,7 +23,7 @@ const projects: Project[] = [
     },
     title: "Beyond Learning Academy",
     summary:
-      "Construí el sitio y trabajé en el CMS personalizado con Payload, componentes reutilizables y conexión con la API.",
+      "Desarrollé el frontend de Beyond Learning Academy y contribuí a su CMS personalizado con Payload. Construí componentes reutilizables y conecté el sitio con la API para integrar los contenidos con la experiencia web.",
     preview: "beyond",
     previewImages: [
       { src: "/images/projects/beyond-features.png", position: "50% 56%" },
@@ -57,7 +57,7 @@ const projects: Project[] = [
     },
     title: "Kuadra · Landing pública",
     summary:
-      "Desarrollé la landing pública para presentar el producto y sus funcionalidades.",
+      "Desarrollé la landing pública de Kuadra para presentar sus funcionalidades y la propuesta del producto a los comercios.",
     preview: "landing",
     previewImages: [
       { src: "/images/projects/kuadra-home.png", position: "50% 42%" },

@@ -407,9 +407,9 @@
 }
 
 .project-copy {
-  grid-column: 2 / span 4;
+  grid-column: 2 / span 5;
   grid-row: 1;
-  max-width: 29rem;
+  max-width: 34rem;
 }
 
 .project-preview {
@@ -432,7 +432,8 @@
 }
 
 .project-row--media-left-bleed .project-copy {
-  grid-column: 8 / span 4;
+  grid-column: 7 / span 6;
+  max-width: 40rem;
 }
 
 .project-row--media-left-bleed .project-preview {
@@ -461,8 +462,10 @@
     padding-bottom: 0.5rem;
   }
 
-  .project-row--media-left-bleed .project-flow {
-    bottom: 6.5rem;
+  .project-row--media-left-bleed .project-index {
+    position: absolute;
+    top: 0.5rem;
+    right: 0;
   }
 
   .project-row--media-right-staggered {
