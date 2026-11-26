@@ -28,7 +28,7 @@ export function SocialLinks({
           rel={href.startsWith("http") ? "noreferrer" : undefined}
           target={href.startsWith("http") ? "_blank" : undefined}
         >
-          <Icon aria-hidden="true" className="size-4 transition-transform group-hover:-translate-y-0.5" />
+          <Icon aria-hidden={true} className="size-4 transition-transform group-hover:-translate-y-0.5" />
           {label}
           {href.startsWith("http") ? <span aria-hidden="true">↗</span> : null}
         </a>

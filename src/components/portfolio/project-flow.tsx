@@ -150,12 +150,15 @@ export function ProjectFlow({ path, nodeX }: ProjectFlowProps) {
     const flow = flowRef.current;
     const svg = svgRef.current;
     const line = pathRef.current;
-    const row = flow?.closest(".project-row");
+    const row = flow?.closest<HTMLElement>(".project-row");
 
     if (!flow || !svg || !line || !row) return;
 
-    const totalLength = line.getTotalLength();
-    const samples = samplePath(line, totalLength);
+    const activeSvg = svg;
+    const activeLine = line;
+
+    const totalLength = activeLine.getTotalLength();
+    const samples = samplePath(activeLine, totalLength);
     let pointerPosition: PointerPosition | null = null;
     let pointerNearPath = false;
     let ripples: Ripple[] = [];
@@ -183,14 +186,14 @@ export function ProjectFlow({ path, nodeX }: ProjectFlowProps) {
     function clearRipple() {
       ripples = [];
       releaseStartedAt = null;
-      line.setAttribute("d", path);
+      activeLine.setAttribute("d", path);
     }
 
     function updateFrame(timestamp: number) {
       animationFrame = null;
 
       if (pointerPosition) {
-        const screenMatrix = svg.getScreenCTM();
+        const screenMatrix = activeSvg.getScreenCTM();
 
         if (screenMatrix) {
           const nearest = findNearestPathPosition(samples, screenMatrix, pointerPosition);
@@ -223,7 +226,7 @@ export function ProjectFlow({ path, nodeX }: ProjectFlowProps) {
       }
 
       if (ripples.length > 0) {
-        line.setAttribute("d", createRipplePath(samples, ripples, timestamp, releaseStartedAt));
+        activeLine.setAttribute("d", createRipplePath(samples, ripples, timestamp, releaseStartedAt));
       } else {
         clearRipple();
       }
