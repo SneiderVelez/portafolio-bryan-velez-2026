@@ -34,6 +34,9 @@ export const metadata: Metadata = {
   title: "Bryan Vélez — Desarrollo frontend y productos digitales",
   description:
     "Portafolio de Bryan Vélez: desarrollo frontend, sitios web, interfaces de producto y sistemas de diseño.",
+  icons: {
+    icon: "/brand-mark.svg",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

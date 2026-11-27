@@ -103,7 +103,13 @@ export function BuildScene({ children }: { children: ReactNode }) {
   }
 
   function handlePointerMove(event: PointerEvent<HTMLDivElement>) {
-    if (event.pointerType === "touch" || !event.isPrimary) return;
+    if (
+      window.matchMedia("(max-width: 640px)").matches ||
+      event.pointerType === "touch" ||
+      !event.isPrimary
+    ) {
+      return;
+    }
 
     pointerSampleRef.current = {
       clientX: event.clientX,
@@ -150,6 +156,13 @@ export function BuildScene({ children }: { children: ReactNode }) {
 
     const visual = visualRef.current;
     if (!visual) return;
+
+    if (window.matchMedia("(max-width: 640px)").matches) {
+      for (const property of Object.keys(restingArtwork)) {
+        visual.style.removeProperty(property);
+      }
+      return;
+    }
 
     for (const [property, value] of Object.entries(restingArtwork)) {
       visual.style.setProperty(property, value);

@@ -41,7 +41,6 @@ export function TechnologySection() {
       <div className="page-shell pb-12 pt-12 sm:pb-16 sm:pt-14">
         <SectionHeading
           className="mb-7 sm:mb-9"
-          description="Tecnologías y prácticas que aplico en proyectos de producto y desarrollo web."
           eyebrow="Herramientas · lenguajes · calidad"
           title="Tecnologías que uso"
           titleId="technology-title"

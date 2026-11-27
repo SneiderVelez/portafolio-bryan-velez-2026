@@ -1,11 +1,12 @@
 "use client";
 
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import type { MouseEvent } from "react";
 import { useEffect, useRef, useState } from "react";
 
 import { BrandMark } from "@/components/brand/brand-mark";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
-import { buttonVariants } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "cn";
 
 const navigation = [
@@ -16,7 +17,11 @@ const navigation = [
 
 export function SiteHeader() {
   const [activeSection, setActiveSection] = useState<string | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const cancelScroll = useRef<(() => void) | null>(null);
+  const headerRef = useRef<HTMLElement>(null);
+  const navigationRef = useRef<HTMLElement>(null);
+  const menuToggleRef = useRef<HTMLButtonElement>(null);
 
   const navigateToAnchor = (
     event: MouseEvent<HTMLAnchorElement>,
@@ -26,6 +31,7 @@ export function SiteHeader() {
     if (!target) return;
 
     event.preventDefault();
+    setIsMobileMenuOpen(false);
     cancelScroll.current?.();
 
     const startY = window.scrollY;
@@ -115,6 +121,42 @@ export function SiteHeader() {
   useEffect(() => () => cancelScroll.current?.(), []);
 
   useEffect(() => {
+    if (!isMobileMenuOpen) return;
+
+    navigationRef.current?.querySelector<HTMLAnchorElement>("a")?.focus();
+  }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+
+    const closeOnOutsidePointer = (event: PointerEvent) => {
+      if (!headerRef.current?.contains(event.target as Node)) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+
+      setIsMobileMenuOpen(false);
+      menuToggleRef.current?.focus();
+    };
+    const closeOnDesktop = (event: MediaQueryListEvent) => {
+      if (event.matches) setIsMobileMenuOpen(false);
+    };
+    const desktopViewport = window.matchMedia("(min-width: 901px)");
+
+    document.addEventListener("pointerdown", closeOnOutsidePointer);
+    document.addEventListener("keydown", closeOnEscape);
+    desktopViewport.addEventListener("change", closeOnDesktop);
+
+    return () => {
+      document.removeEventListener("pointerdown", closeOnOutsidePointer);
+      document.removeEventListener("keydown", closeOnEscape);
+      desktopViewport.removeEventListener("change", closeOnDesktop);
+    };
+  }, [isMobileMenuOpen]);
+
+  useEffect(() => {
     const updateActiveSection = () => {
       const activationLine = window.innerHeight * 0.4;
       const currentSection = navigation
@@ -140,8 +182,12 @@ export function SiteHeader() {
   }, []);
 
   return (
-    <header className="site-header">
-      <div className="site-header-inner flex flex-wrap items-center justify-between gap-x-6 gap-y-3 px-4 py-3 sm:px-6">
+    <header
+      className="site-header"
+      data-menu-open={isMobileMenuOpen ? "true" : "false"}
+      ref={headerRef}
+    >
+      <div className="site-header-inner">
         <a
           className="group inline-flex items-center gap-2 text-base font-semibold tracking-tight text-ink no-underline"
           href="#inicio"
@@ -152,10 +198,12 @@ export function SiteHeader() {
           Bryan Vélez
         </a>
 
-        <div className="ml-auto flex flex-wrap items-center justify-end gap-x-4 gap-y-2 sm:gap-x-6">
+        <div className="site-header-controls">
           <nav
             aria-label="Navegación principal"
-            className="flex flex-wrap items-center gap-3 sm:gap-8"
+            className="site-navigation"
+            id="site-navigation"
+            ref={navigationRef}
           >
             {navigation.map((item) => {
               const isActive = activeSection === item.href.slice(1);
@@ -172,17 +220,35 @@ export function SiteHeader() {
                 </a>
               );
             })}
+            <a
+              className={cn(
+                buttonVariants({ variant: "outline", size: "default" }),
+                "site-nav-contact font-semibold sm:text-base",
+              )}
+              href="mailto:sneivega09@gmail.com"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Contacto <ArrowUpRight aria-hidden="true" className="ml-1 size-4 shrink-0" />
+            </a>
           </nav>
-          <a
-            className={cn(
-              buttonVariants({ variant: "outline", size: "default" }),
-              "h-10 px-3 font-semibold sm:text-base",
-            )}
-            href="mailto:sneivega09@gmail.com"
-          >
-            Contacto <span aria-hidden="true">↗</span>
-          </a>
           <ThemeToggle />
+          <Button
+            aria-controls="site-navigation"
+            aria-expanded={isMobileMenuOpen}
+            aria-label={isMobileMenuOpen ? "Cerrar navegación" : "Abrir navegación"}
+            className="site-menu-toggle"
+            onClick={() => setIsMobileMenuOpen((open) => !open)}
+            ref={menuToggleRef}
+            size="icon"
+            type="button"
+            variant="ghost"
+          >
+            {isMobileMenuOpen ? (
+              <X aria-hidden="true" className="size-5" />
+            ) : (
+              <Menu aria-hidden="true" className="size-5" />
+            )}
+          </Button>
         </div>
       </div>
     </header>

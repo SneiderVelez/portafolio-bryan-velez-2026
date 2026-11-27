@@ -1,7 +1,8 @@
-import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { ProjectFlow } from "@/components/portfolio/project-flow";
+import { ProjectGallery } from "@/components/portfolio/project-gallery";
 
 export type Project = {
   number: string;
@@ -16,8 +17,7 @@ export type Project = {
   title: string;
   summary: string;
   preview: "beyond" | "kuadra" | "landing";
-  previewLabel?: string;
-  previewImages?: { src: string; position?: string }[];
+  previewImages: { src: string; position?: string }[];
   href?: string;
 };
 
@@ -47,7 +47,7 @@ export function ProjectRow({ project }: ProjectRowProps) {
 
       <div className="project-row-inner">
         <span className="project-index font-mono text-xs text-muted-foreground">
-          {project.number}
+          <span className="project-index__number">{project.number}</span>
         </span>
 
         <div className="project-copy">
@@ -81,7 +81,7 @@ export function ProjectRow({ project }: ProjectRowProps) {
                 rel="noreferrer"
                 target="_blank"
               >
-                <span aria-hidden="true" className="project-link-arrow">↗</span>
+                <ArrowUpRight aria-hidden="true" className="project-link-arrow" />
               </a>
             ) : null}
           </h3>
@@ -96,46 +96,11 @@ export function ProjectRow({ project }: ProjectRowProps) {
             "project-preview--three-images": project.previewImages?.length === 3,
           })}
         >
-          {project.previewImages?.length ? (
-            <div className="project-preview-gallery">
-              {project.previewImages.map((image, index) => {
-                const previewImage = (
-                  <Image
-                    alt=""
-                    className="project-preview-image"
-                    fill
-                    quality={78}
-                    sizes="(max-width: 1024px) 100vw, (max-width: 1440px) 45vw, 640px"
-                    src={image.src}
-                    style={{ objectPosition: image.position ?? "50% 50%" }}
-                  />
-                );
-
-                if (!project.href) {
-                  return (
-                    <div className="project-preview-frame" key={image.src}>
-                      {previewImage}
-                    </div>
-                  );
-                }
-
-                return (
-                  <a
-                    aria-label={`Abrir ${project.title} desde la captura ${index + 1} en una pestaña nueva`}
-                    className="project-preview-frame project-preview-frame--link"
-                    href={project.href}
-                    key={image.src}
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    {previewImage}
-                  </a>
-                );
-              })}
-            </div>
-          ) : (
-            project.previewLabel
-          )}
+          <ProjectGallery
+            images={project.previewImages}
+            projectHref={project.href}
+            projectTitle={project.title}
+          />
         </div>
       </div>
     </article>

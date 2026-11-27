@@ -70,7 +70,7 @@ export function AboutPortraitArt() {
           x="457"
           y="246"
         >
-          ? <tspan className="about-portrait__code-string">"Curiosidad"</tspan>
+          ? <tspan className="about-portrait__code-string">&quot;Curiosidad&quot;</tspan>
         </text>
         <text
           className="about-portrait__code-line about-portrait__code-line--four"

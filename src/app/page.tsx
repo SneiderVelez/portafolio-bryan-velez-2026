@@ -91,28 +91,28 @@ export default function Home() {
                   Desarrollo frontend · sitios web y productos digitales
                 </p>
                 <h1
-                  className="max-w-4xl font-display text-[clamp(3rem,7vw,5rem)] font-medium leading-[1.02] tracking-tight text-ink"
+                  className="hero-title max-w-4xl font-display font-medium leading-[1.02] tracking-tight text-ink"
                   id="hero-title"
                   tabIndex={-1}
                 >
                   De la curiosidad
                   <span className="hero-highlight block">al sistema.</span>
                 </h1>
-                <p className="body-copy mt-6 max-w-xl text-lg leading-[1.8] text-muted-foreground sm:text-xl">
+                <p className="body-copy mt-6 max-w-xl text-base leading-[1.7] text-muted-foreground sm:text-lg xl:text-xl">
                   Desarrollo experiencias web: desde sitios visuales completos
                   hasta interfaces para productos SaaS. Mi base es frontend y
                   estoy ampliando mi camino hacia full stack.
                 </p>
-                <div className="mt-8 flex flex-wrap gap-3">
+                <div className="hero-actions mt-8 flex flex-wrap justify-center gap-3 sm:justify-start">
                   <Link
-                    className={buttonVariants({ size: "lg" })}
+                    className={`${buttonVariants({ size: "lg" })} hero-project-link`}
                     data-background-reveal
                     href="#proyectos"
                   >
                     Ver proyectos
                   </Link>
                   <Link
-                    className={buttonVariants({ variant: "outline", size: "lg" })}
+                    className={`${buttonVariants({ variant: "outline", size: "lg" })} hero-contact-link`}
                     data-background-reveal
                     href="mailto:sneivega09@gmail.com"
                   >
@@ -131,7 +131,6 @@ export default function Home() {
         >
           <div className="page-shell">
             <SectionHeading
-              description="Una selección de trabajo visual y de producto."
               className="!mb-6 sm:!mb-7"
               title="Proyectos"
               titleId="projects-title"
@@ -149,7 +148,7 @@ export default function Home() {
           className="about-section"
           id="sobre-mi"
         >
-          <div className="about-layout page-shell grid gap-8 py-12 sm:grid-cols-[minmax(0,1.15fr)_minmax(16rem,0.85fr)] sm:items-center sm:gap-16 sm:py-16">
+          <div className="about-layout page-shell grid gap-8 py-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(16rem,0.85fr)] lg:items-center lg:gap-12 lg:py-16">
             <div className="about-copy max-w-2xl">
               <p className="eyebrow mb-3">Frontend · producto · calidad</p>
               <SectionHeading
@@ -157,7 +156,7 @@ export default function Home() {
                 title="Sobre mí"
                 titleId="about-title"
               />
-              <p className="body-copy text-lg leading-[1.8] text-muted-foreground">
+              <p className="body-copy text-base leading-[1.75] text-muted-foreground sm:text-lg sm:leading-[1.8]">
                 Soy tecnólogo en Electricidad Industrial. Durante mis estudios de
                 Ingeniería en esta área tuve mi primer acercamiento al desarrollo en
                 una clase de C++. Me gustó y seguí explorando ese interés al estudiar
@@ -165,7 +164,7 @@ export default function Home() {
                 <span className="about-copy__emphasis">Desarrollo de Software</span>,
                 donde fortalecí mis bases en programación.
               </p>
-              <p className="body-copy mt-4 text-lg leading-[1.8] text-muted-foreground">
+              <p className="body-copy mt-4 text-base leading-[1.75] text-muted-foreground sm:text-lg sm:leading-[1.8]">
                 Actualmente trabajo como desarrollador junior, principalmente en
                 frontend. Me gusta involucrarme desde la idea, aportar mis
                 conocimientos y cuidar cada detalle para lograr productos
