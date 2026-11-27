@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState, type MouseEvent, type TouchEvent } from "react";
 
 type ProjectGalleryImage = {
   src: string;
@@ -14,7 +14,7 @@ type ProjectGalleryProps = {
   projectHref?: string;
 };
 
-const ROTATION_INTERVAL_MS = 6200;
+const SWIPE_THRESHOLD_PX = 44;
 
 export function ProjectGallery({
   images,
@@ -22,71 +22,63 @@ export function ProjectGallery({
   projectHref,
 }: ProjectGalleryProps) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const [canAutoRotate, setCanAutoRotate] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-  const galleryRef = useRef<HTMLDivElement | null>(null);
+  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
+  const suppressClickRef = useRef(false);
 
-  useEffect(() => {
-    const mobileQuery = window.matchMedia("(max-width: 640px)");
-    const syncAutoRotatePreference = () => setCanAutoRotate(mobileQuery.matches);
+  function handleTouchStart(event: TouchEvent<HTMLDivElement>) {
+    suppressClickRef.current = false;
+    if (images.length < 2 || !window.matchMedia("(max-width: 640px)").matches) return;
 
-    syncAutoRotatePreference();
-    mobileQuery.addEventListener("change", syncAutoRotatePreference);
+    const touch = event.touches[0];
+    if (!touch) return;
 
-    return () => {
-      mobileQuery.removeEventListener("change", syncAutoRotatePreference);
-    };
-  }, []);
+    touchStartRef.current = { x: touch.clientX, y: touch.clientY };
+  }
 
-  useEffect(() => {
-    const gallery = galleryRef.current;
-    if (!gallery || images.length < 2) return;
+  function handleTouchEnd(event: TouchEvent<HTMLDivElement>) {
+    const start = touchStartRef.current;
+    touchStartRef.current = null;
+    if (!start || !window.matchMedia("(max-width: 640px)").matches) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => setIsVisible(entry.isIntersecting),
-      { threshold: 0.25 },
+    const touch = event.changedTouches[0];
+    if (!touch) return;
+
+    const deltaX = touch.clientX - start.x;
+    const deltaY = touch.clientY - start.y;
+    if (Math.abs(deltaX) < SWIPE_THRESHOLD_PX || Math.abs(deltaX) <= Math.abs(deltaY)) return;
+
+    suppressClickRef.current = true;
+    window.requestAnimationFrame(() => {
+      suppressClickRef.current = false;
+    });
+    setActiveIndex((currentIndex) =>
+      (currentIndex + (deltaX < 0 ? 1 : -1) + images.length) % images.length,
     );
+  }
 
-    observer.observe(gallery);
-    return () => observer.disconnect();
-  }, [images.length]);
+  function handleGalleryClickCapture(event: MouseEvent<HTMLDivElement>) {
+    if (!suppressClickRef.current) return;
 
-  useEffect(() => {
-    if (!canAutoRotate || isPaused || !isVisible || images.length < 2) return;
-
-    let intervalId: number | undefined;
-
-    function syncRotation() {
-      if (intervalId !== undefined) {
-        window.clearInterval(intervalId);
-        intervalId = undefined;
-      }
-
-      if (document.visibilityState !== "visible") return;
-
-      intervalId = window.setInterval(() => {
-        setActiveIndex((currentIndex) => (currentIndex + 1) % images.length);
-      }, ROTATION_INTERVAL_MS);
-    }
-
-    syncRotation();
-    document.addEventListener("visibilitychange", syncRotation);
-
-    return () => {
-      document.removeEventListener("visibilitychange", syncRotation);
-      if (intervalId !== undefined) window.clearInterval(intervalId);
-    };
-  }, [canAutoRotate, images.length, isPaused, isVisible]);
+    event.preventDefault();
+    event.stopPropagation();
+    suppressClickRef.current = false;
+  }
 
   function selectImage(index: number) {
     setActiveIndex(index);
-    setIsPaused(true);
   }
 
   return (
     <>
-      <div className="project-preview-window" ref={galleryRef}>
+      <div
+        className="project-preview-window"
+        onClickCapture={handleGalleryClickCapture}
+        onTouchCancel={() => {
+          touchStartRef.current = null;
+        }}
+        onTouchEnd={handleTouchEnd}
+        onTouchStart={handleTouchStart}
+      >
         <div
           aria-label={`Capturas de ${projectTitle}`}
           aria-roledescription={images.length > 1 ? "carrusel" : undefined}
@@ -157,20 +149,6 @@ export function ProjectGallery({
               </button>
             ))}
           </div>
-
-          {canAutoRotate ? (
-            <button
-              aria-label={isPaused ? "Reanudar cambio de capturas" : "Pausar cambio de capturas"}
-              aria-pressed={isPaused}
-              className="project-preview-rotation-toggle"
-              onClick={() => setIsPaused((current) => !current)}
-              type="button"
-            >
-              <span aria-hidden="true">{isPaused ? "▶" : "Ⅱ"}</span>
-            </button>
-          ) : (
-            <span aria-hidden="true" className="project-preview-control-spacer" />
-          )}
         </div>
       ) : null}
     </>

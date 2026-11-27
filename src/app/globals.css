@@ -1560,6 +1560,7 @@
     width: 100%;
     aspect-ratio: 1.658;
     overflow: visible;
+    touch-action: pan-y;
   }
 
   .project-preview::after {
@@ -1647,8 +1648,7 @@
     justify-content: center;
   }
 
-  .project-preview-page-button,
-  .project-preview-rotation-toggle {
+  .project-preview-page-button {
     display: inline-grid;
     width: 2.75rem;
     height: 2.75rem;
@@ -1676,29 +1676,14 @@
     background: var(--brand-accent);
   }
 
-  .project-preview-rotation-toggle {
-    justify-self: end;
-    font-size: 0.95rem;
-    font-weight: 600;
-  }
-
-  .project-preview-control-spacer {
-    width: 2.75rem;
-    height: 2.75rem;
-    justify-self: end;
-  }
-
   .project-preview-page-button:hover,
-  .project-preview-page-button:focus-visible,
-  .project-preview-rotation-toggle:hover,
-  .project-preview-rotation-toggle:focus-visible {
+  .project-preview-page-button:focus-visible {
     background: color-mix(in srgb, var(--brand-accent) 16%, transparent);
     color: var(--ink);
     outline: none;
   }
 
-  .project-preview-page-button:focus-visible,
-  .project-preview-rotation-toggle:focus-visible {
+  .project-preview-page-button:focus-visible {
     box-shadow: 0 0 0 2px color-mix(in srgb, var(--brand-accent) 65%, transparent);
   }
 
