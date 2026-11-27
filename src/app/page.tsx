@@ -114,7 +114,7 @@ export default function Home() {
                   <Link
                     className={`${buttonVariants({ variant: "outline", size: "lg" })} hero-contact-link`}
                     data-background-reveal
-                    href="mailto:sneivega09@gmail.com"
+                    href="/contacto"
                   >
                     Contactarme
                   </Link>

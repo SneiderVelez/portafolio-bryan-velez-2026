@@ -1,6 +1,8 @@
 "use client";
 
 import { ArrowUpRight, Menu, X } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import type { MouseEvent } from "react";
 import { useEffect, useRef, useState } from "react";
 
@@ -16,6 +18,7 @@ const navigation = [
 ];
 
 export function SiteHeader() {
+  const pathname = usePathname();
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const cancelScroll = useRef<(() => void) | null>(null);
@@ -188,15 +191,19 @@ export function SiteHeader() {
       ref={headerRef}
     >
       <div className="site-header-inner">
-        <a
+        <Link
           className="group inline-flex items-center gap-2 text-base font-semibold tracking-tight text-ink no-underline"
-          href="#inicio"
+          href={pathname === "/" ? "#inicio" : "/#inicio"}
           aria-label="Bryan Vélez, inicio"
-          onClick={(event) => navigateToAnchor(event, "#inicio")}
+          onClick={
+            pathname === "/"
+              ? (event) => navigateToAnchor(event, "#inicio")
+              : undefined
+          }
         >
           <BrandMark className="brand-mark size-7 transition-transform group-hover:rotate-[-8deg]" />
           Bryan Vélez
-        </a>
+        </Link>
 
         <div className="site-header-controls">
           <nav
@@ -207,29 +214,36 @@ export function SiteHeader() {
           >
             {navigation.map((item) => {
               const isActive = activeSection === item.href.slice(1);
+              const href = pathname === "/" ? item.href : `/${item.href}`;
 
               return (
-                <a
+                <Link
                   aria-current={isActive ? "location" : undefined}
                   className="site-nav-link inline-flex items-center gap-2 text-sm sm:text-base"
-                  href={item.href}
+                  href={href}
                   key={item.href}
-                  onClick={(event) => navigateToAnchor(event, item.href)}
+                  onClick={
+                    pathname === "/"
+                      ? (event) => navigateToAnchor(event, item.href)
+                      : undefined
+                  }
                 >
                   {item.label}
-                </a>
+                </Link>
               );
             })}
-            <a
+            <Link
+              aria-current={pathname === "/contacto" ? "page" : undefined}
               className={cn(
                 buttonVariants({ variant: "outline", size: "default" }),
                 "site-nav-contact font-semibold sm:text-base",
               )}
-              href="mailto:sneivega09@gmail.com"
+              data-background-reveal
+              href="/contacto"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Contacto <ArrowUpRight aria-hidden="true" className="ml-1 size-4 shrink-0" />
-            </a>
+            </Link>
           </nav>
           <ThemeToggle />
           <Button

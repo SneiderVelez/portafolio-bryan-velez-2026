@@ -29,3 +29,11 @@ Espacio de trabajo para definir, diseñar y desarrollar el portafolio personal d
 - `pnpm dev`: iniciar el sitio local.
 - `pnpm build`: generar la versión de producción.
 - `pnpm lint`: revisar calidad y consistencia del código.
+
+## Formulario de contacto
+
+El formulario envía los mensajes mediante la API de Resend. Configura las
+variables de `.env.example` en local y en el entorno de despliegue. El correo
+definido en `CONTACT_FROM_EMAIL` debe pertenecer a un dominio verificado en
+Resend. Si falta la configuración, el sitio conserva el correo directo como
+alternativa y no muestra un envío exitoso.
