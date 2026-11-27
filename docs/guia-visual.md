@@ -38,7 +38,7 @@ El cian destaca como el color de marca; los fondos y textos usan grises con mati
 - Probar Newsreader en los textos descriptivos y de lectura, IBM Plex Sans Condensed en los títulos, IBM Plex Sans en navegación y controles, e IBM Plex Mono en etiquetas. Newsreader se aplica a peso 400 para conservar trazos legibles.
 - Mantener el cuerpo en una sans legible de tamaño moderado, con jerarquía por peso, ancho y espaciado, no solo por tamaño.
 - Evitar la serif Bodoni/Didot en titulares; no representa la dirección que Bryan busca.
-- La comparación tipográfica anterior no convenció; se reemplaza por una nueva iteración del hero en `prototipo-home.html`.
+- La comparación tipográfica inicial no convenció; la dirección final se afinó en la interfaz implementada.
 
 ## Textura y formas
 

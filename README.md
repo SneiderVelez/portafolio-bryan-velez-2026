@@ -18,10 +18,8 @@ Espacio de trabajo para definir, diseñar y desarrollar el portafolio personal d
 - `docs/referentes.md`: qué tomamos de los cuatro referentes seleccionados.
 - `docs/guia-visual.md`: paleta inicial, tipografía, textura, movimiento y accesibilidad.
 - `docs/wireframe-home.md`: estructura y primer contenido de la página de inicio.
-- `prototipo-home.html`: maqueta visual independiente de la portada para revisar antes de elegir framework.
-- `prototipo-tipografia.html`: comparación de dos opciones tipográficas y la textura de fondo propuesta.
-- `assets/references/`: imágenes aportadas como referencia visual.
-- `assets/textures/hoja-de-codigo.svg`: guías de indentación abstractas en las esquinas, como referencia sutil a componentes y código.
+- `public/images/`: retrato y capturas de los proyectos.
+- `public/textures/`: texturas SVG usadas por la interfaz.
 - `src/app/globals.css`: tokens semánticos, paleta de marca, tipografías y estilos base.
 - `src/components/ui/`: primitivas shadcn/ui adaptadas a la identidad visual.
 - `src/components/portfolio/`: componentes propios reutilizables para las secciones del portafolio.
@@ -30,3 +28,4 @@ Espacio de trabajo para definir, diseñar y desarrollar el portafolio personal d
 
 - `pnpm dev`: iniciar el sitio local.
 - `pnpm build`: generar la versión de producción.
+- `pnpm lint`: revisar calidad y consistencia del código.
